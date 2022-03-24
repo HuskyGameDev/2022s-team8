@@ -7,7 +7,7 @@ public class TimerScript : MonoBehaviour
     private GameObject GUITimerObject;
     private float timeRemaining;
     public int DurationSeconds;
-    public GameObject NumberPrefab;//prefab to spawn
+    public GameObject timerSpriteSheet_0;//prefab to spawn
     private GameObject num1;//instance of the spawned prefab
     ////private Sprite[] sprites;
     // Start is called before the first frame update
@@ -15,7 +15,7 @@ public class TimerScript : MonoBehaviour
     {
         timeRemaining = DurationSeconds;
         GUITimerObject = GameObject.Find("TimerBG");
-        num1 = Instantiate(NumberPrefab, new Vector2(0, 0), Quaternion.identity);
+        num1 = Instantiate(timerSpriteSheet_0, new Vector2(0, 0), Quaternion.identity);
         ////sprites = Resources.LoadAll<Sprite>("timerSpriteSheet");
     }
 
