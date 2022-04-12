@@ -9,23 +9,14 @@ public class playerMovement : MonoBehaviour
     public Vector2 mousePos;
     public float moveSpeed = 5f;
     public Camera cam;
-    public Animator animator;
-    public bool hasGun;
+  
     // Update is called once per frame
     void Update()
     {
-       if (hasGun == true)
-            animator.SetBool("hasGun", true);
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        if (movement.x != 0 || movement.y != 0)
-            animator.SetBool("moving", true);
-        else
-            animator.SetBool("moving", false);
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
-
     }
 
     void FixedUpdate()
