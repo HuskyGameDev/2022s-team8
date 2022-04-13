@@ -8,7 +8,11 @@ using System;
 //LINK TO HIS CHANNEL: https://www.youtube.com/channel/UCkeuMRVpRBFJ-nT12AD4GaA
 
 public class HUDManager : MonoBehaviour
-{
+{	
+	//This is a reference to the Text component on the HUD gameobject that will display how much time has passed since the level started
+    [SerializeField]
+    private Text scrapCountText = null;
+
     //This is a reference to the Text component on the HUD gameobject that will display how much time has passed since the level started
     [SerializeField]
     private Text timeText = null;
@@ -22,10 +26,12 @@ public class HUDManager : MonoBehaviour
 	private float timeLimitSeconds;
 	
 	private bool timeIsUp = false;
+	private int scrapCount = 0;
 
     private void Start()
     {
 		timeLimitSeconds = timeLimitSeconds + 0.99f;
+		scrapCountText.text = "0";
     }
 
     // Update is called once per frame
@@ -35,6 +41,12 @@ public class HUDManager : MonoBehaviour
         AddTime();
 
     }
+
+	//called by ScrapCollider.cs
+	public void addScrap(int amount) {
+		scrapCount = scrapCount + amount;
+		scrapCountText.text = scrapCount.ToString();
+	}
 
     private void AddTime()
     {
