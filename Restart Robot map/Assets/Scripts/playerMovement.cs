@@ -11,6 +11,7 @@ public class playerMovement : MonoBehaviour
     public Camera cam;
     public Animator animator;
     public bool hasGun;
+   
     // Update is called once per frame
     void Update()
     {
@@ -36,4 +37,5 @@ public class playerMovement : MonoBehaviour
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg -90f;
         rb.rotation = angle;
     }
+   
 }
