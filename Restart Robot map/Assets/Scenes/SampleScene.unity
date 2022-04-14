@@ -375,7 +375,6 @@ GameObject:
   - component: {fileID: 84580229}
   - component: {fileID: 84580228}
   - component: {fileID: 84580230}
-  - component: {fileID: 84580231}
   - component: {fileID: 84580232}
   m_Layer: 0
   m_Name: Grid
@@ -451,19 +450,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &84580231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 84580227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 028012e5b82012747bead17218fe4946, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  begin: 
 --- !u!114 &84580232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2630,19 +2616,6 @@ MonoBehaviour:
   timeText: {fileID: 443163412}
   timeLimitMinutes: 1
   timeLimitSeconds: 30
---- !u!114 &551583800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551583798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 028012e5b82012747bead17218fe4946, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  begin: 
 --- !u!1001 &558402855
 PrefabInstance:
   m_ObjectHideFlags: 0
