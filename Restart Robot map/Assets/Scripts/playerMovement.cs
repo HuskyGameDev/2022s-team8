@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
 {
@@ -11,11 +12,11 @@ public class playerMovement : MonoBehaviour
     public Camera cam;
     public Animator animator;
     public bool hasGun;
-   
+
     // Update is called once per frame
     void Update()
     {
-       if (hasGun == true)
+        if (hasGun == true)
             animator.SetBool("hasGun", true);
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
@@ -25,7 +26,6 @@ public class playerMovement : MonoBehaviour
             animator.SetBool("moving", false);
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
 
     }
 
@@ -37,5 +37,13 @@ public class playerMovement : MonoBehaviour
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg -90f;
         rb.rotation = angle;
     }
-   
+
+    public void Quit()
+    {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+    }
+
 }
