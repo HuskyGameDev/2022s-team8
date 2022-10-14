@@ -1136,8 +1136,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrapCountText: {fileID: 443163413}
   timeText: {fileID: 443163412}
-  timeLimitMinutes: 1
+  healthSlider: {fileID: 737778996}
+  timeLimitMinutes: 0
   timeLimitSeconds: 30
+  playerObject: {fileID: 1268924461}
 --- !u!1001 &558402855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1220,6 +1222,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6538818649755501759, guid: 01b26373e8ac36e4d803e4bf54b281ae, type: 3}
   m_PrefabInstance: {fileID: 558402855}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &737778996 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3565532356358944329, guid: b9cfcf578e67cb44bbd64d59f3f5748f, type: 3}
+  m_PrefabInstance: {fileID: 443163411}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &896148167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 452028120742389228, guid: 01b26373e8ac36e4d803e4bf54b281ae, type: 3}
@@ -40539,6 +40552,8 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   animator: {fileID: 1268924463}
   hasGun: 0
+  isDead: 0
+  maxHealth: 100
 --- !u!50 &1268924465
 Rigidbody2D:
   serializedVersion: 4
