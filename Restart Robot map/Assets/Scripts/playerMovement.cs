@@ -13,9 +13,28 @@ public class playerMovement : MonoBehaviour
     public Animator animator;
     public bool hasGun;
 
+    [HideInInspector]
+    public bool isDead;
+    private int curHealth;
+    [SerializeField]
+    private int maxHealth = 100;
+
+    public delegate void SetHealth(int amount);
+    public static event SetHealth UpdateHealthEvent;
+
+    //Called on startup
+    private void Start()
+    {
+        curHealth = maxHealth;
+        UpdateHealthEvent(curHealth);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+			return;
+        
         if (hasGun == true)
             animator.SetBool("hasGun", true);
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -27,10 +46,23 @@ public class playerMovement : MonoBehaviour
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
+        //UPDATE HEALTH
+        //DEBUG CODE
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            DamagePlayer(10);
+        }
+        if(Input.GetKeyDown(KeyCode.H) && curHealth != maxHealth)
+        {
+            HealPlayer(10);
+        }
     }
 
     void FixedUpdate()
     {
+        if (isDead)
+			return;
+        
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
         Vector2 lookDir = mousePos - rb.position;
@@ -44,6 +76,25 @@ public class playerMovement : MonoBehaviour
         {
             Application.Quit();
         }
+    }
+
+    public void DamagePlayer(int amount)
+    {
+        curHealth -= amount;
+        UpdateHealthEvent(curHealth);
+        if (curHealth <= 0)
+        {
+            isDead = true;
+            animator.SetBool("isDead", true);
+        }
+    }
+
+    public void HealPlayer(int amount)
+    {
+        curHealth += amount;
+        if (curHealth > maxHealth)
+            curHealth = maxHealth;
+        UpdateHealthEvent(curHealth);
     }
 
 }

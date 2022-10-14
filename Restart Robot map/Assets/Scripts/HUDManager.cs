@@ -17,6 +17,10 @@ public class HUDManager : MonoBehaviour
     [SerializeField]
     private Text timeText = null;
 	
+	//This is a reference to the Slider component on the HUD gameobject that will display how much health the player has
+    [SerializeField]
+	private Slider healthSlider = null;
+
     //Parameter: How many minutes the player has until time runs out at level start
     [SerializeField]
 	private int timeLimitMinutes;
@@ -27,29 +31,51 @@ public class HUDManager : MonoBehaviour
 	
 	private bool timeIsUp = false;
 	private int scrapCount = 0;
+	private bool playerIsDead;
+
+	[SerializeField]
+	private GameObject playerObject = null;
+	[HideInInspector]
+	private playerMovement playerMovementScript;
 
     private void Start()
     {
 		timeLimitSeconds = timeLimitSeconds + 0.99f;
 		scrapCountText.text = "0";
+		healthSlider.value = 99;
+
+		//subscribe to the UpdateHealthEvent event
+		playerMovement.UpdateHealthEvent += ChangeHealth;
+
+		//for running method to damage player
+		playerMovementScript = playerObject.GetComponent<playerMovement>();
+
+		playerIsDead = false;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        //A method that constantly adds to the timeInLevel value as long as player is alive
+		
         AddTime();
-
+		
     }
 
 	//called by ScrapCollider.cs
 	public void addScrap(int amount) {
+		if (playerIsDead)
+			return;
+		
 		scrapCount = scrapCount + amount;
 		scrapCountText.text = scrapCount.ToString();
 	}
 
+    //A method that constantly adds to the timeInLevel value as long as player is alive
     private void AddTime()
     {
+		if (playerIsDead && !timeIsUp)
+			return;
+		
 		//timeText.text is the exact text string that is displayed in the timer
 		
 		if (timeIsUp == false) {//continue to count down timer
@@ -62,6 +88,8 @@ public class HUDManager : MonoBehaviour
 					timeLimitSeconds = 0.0f;
 					timeLimitMinutes = 0;
 					timeIsUp = true;
+					//KILL THE PLAYER
+					playerMovementScript.DamagePlayer(999);
 				}
 			}
 	        timeText.text = timeLimitMinutes.ToString("D2") + ":" + ((int)Math.Floor(timeLimitSeconds)).ToString("D2");
@@ -84,5 +112,18 @@ public class HUDManager : MonoBehaviour
 		}
 
     }
+
+	private void ChangeHealth(int amount)
+	{
+		if (playerIsDead)
+			return;
+
+		if (amount <= 0) {
+			healthSlider.value = 0;
+			playerIsDead = true;
+		} else { 
+			healthSlider.value = amount;
+		}
+	}
 
 }
