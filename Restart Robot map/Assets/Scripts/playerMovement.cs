@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Animation code based on https://www.youtube.com/watch?v=hkaysu1Z-N8
+
 public class playerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
@@ -15,9 +17,9 @@ public class playerMovement : MonoBehaviour
 
     [HideInInspector]
     public bool isDead;
-    private int curHealth;
+    public int curHealth;
     [SerializeField]
-    private int maxHealth = 100;
+    public int maxHealth = 100;
 
     public delegate void SetHealth(int amount);
     public static event SetHealth UpdateHealthEvent;
@@ -52,9 +54,29 @@ public class playerMovement : MonoBehaviour
         {
             DamagePlayer(10);
         }
+        if(Input.GetKeyDown(KeyCode.Y))
+        {
+            DamagePlayer(1);
+        }
+        if(Input.GetKeyDown(KeyCode.U))
+        {
+            DamagePlayer(99);
+        }
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            DamagePlayer((int)Random.Range(1,10));
+        }
         if(Input.GetKeyDown(KeyCode.H) && curHealth != maxHealth)
         {
             HealPlayer(10);
+        }
+        if(Input.GetKeyDown(KeyCode.J) && curHealth != maxHealth)
+        {
+            HealPlayer(1);
+        }
+        if(Input.GetKeyDown(KeyCode.K) && curHealth != maxHealth)
+        {
+            HealPlayer(100);
         }
     }
 
@@ -85,6 +107,7 @@ public class playerMovement : MonoBehaviour
         if (curHealth <= 0)
         {
             isDead = true;
+            FindObjectOfType<AudioManager>().Play("PlayerDeathWithExplosion");//PLAY DEATH SFX
             animator.SetBool("isDead", true);
         }
     }

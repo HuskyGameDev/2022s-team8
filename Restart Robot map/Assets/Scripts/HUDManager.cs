@@ -21,6 +21,10 @@ public class HUDManager : MonoBehaviour
     [SerializeField]
 	private Slider healthSlider = null;
 
+	//Text component on healthbar
+	[SerializeField]
+	private Text healthBarText = null;
+
     //Parameter: How many minutes the player has until time runs out at level start
     [SerializeField]
 	private int timeLimitMinutes;
@@ -33,16 +37,25 @@ public class HUDManager : MonoBehaviour
 	private int scrapCount = 0;
 	private bool playerIsDead;
 
+	private int healthSliderDestination;
+	private float healthSliderValue;
+
 	[SerializeField]
 	private GameObject playerObject = null;
 	[HideInInspector]
 	private playerMovement playerMovementScript;
 
+//C sharp format specifiers in ToString(): https://learn.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings
+
     private void Start()
     {
 		timeLimitSeconds = timeLimitSeconds + 0.99f;
 		scrapCountText.text = "0";
-		healthSlider.value = 99;
+		healthBarText.text = "100";
+		healthSlider.value = 1;
+		healthSliderValue = 1;
+		healthSliderDestination = 100;
+
 
 		//subscribe to the UpdateHealthEvent event
 		playerMovement.UpdateHealthEvent += ChangeHealth;
@@ -58,6 +71,8 @@ public class HUDManager : MonoBehaviour
     {
 		
         AddTime();
+
+		UpdateHealthDisplay();
 		
     }
 
@@ -113,16 +128,49 @@ public class HUDManager : MonoBehaviour
 
     }
 
+	private void UpdateHealthDisplay() {
+		if (playerIsDead) {
+			healthSliderDestination = 0;
+		}
+
+		//health slider value (position of the slider)
+		if (healthSliderValue > playerMovementScript.maxHealth) {
+			healthSliderValue = playerMovementScript.maxHealth;
+		} else if (healthSliderValue < 0) {
+			healthSliderValue = 0;
+		} else if (Math.Abs(healthSliderDestination-healthSliderValue) <= 1) {
+			healthSliderValue = healthSliderDestination;
+		} else if (healthSliderValue < healthSliderDestination) {
+			healthSliderValue += Time.deltaTime*(healthSliderDestination-healthSliderValue)*15;
+		} else if (healthSliderValue > healthSliderDestination) {
+			healthSliderValue -= Time.deltaTime*(healthSliderValue-healthSliderDestination)*15;
+		}
+
+		healthSlider.value = (int)Math.Round(healthSliderValue);
+		
+		//health bar text
+		healthBarText.text = healthSliderDestination.ToString("F0");
+		RectTransform myRectTransform = healthBarText.GetComponent<RectTransform>();
+		if (healthSliderValue >= 10) {
+			myRectTransform.anchoredPosition = new Vector2(-83, 0);
+			healthBarText.color = Color.white;
+		} else {
+			myRectTransform.anchoredPosition = new Vector2(-71, 0);	
+			healthBarText.color = new Color(255, 0, 0, 255);
+		}
+
+	}
+
 	private void ChangeHealth(int amount)
 	{
 		if (playerIsDead)
 			return;
 
 		if (amount <= 0) {
-			healthSlider.value = 0;
+			healthSliderDestination = 0;
 			playerIsDead = true;
 		} else { 
-			healthSlider.value = amount;
+			healthSliderDestination = amount;
 		}
 	}
 
