@@ -17,6 +17,7 @@ public class playerMovement : MonoBehaviour
 
     [HideInInspector]
     public bool isDead;
+    private float secondsSinceDeath;
     public int curHealth;
     [SerializeField]
     public int maxHealth = 100;
@@ -28,14 +29,20 @@ public class playerMovement : MonoBehaviour
     private void Start()
     {
         curHealth = maxHealth;
+        secondsSinceDeath = 0;
         UpdateHealthEvent(curHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isDead)
-			return;
+        if (isDead) {
+			secondsSinceDeath = secondsSinceDeath + 1*Time.deltaTime;
+            if (secondsSinceDeath >= 3.0) {
+                SceneManager.LoadScene("UpgradeMenu");
+            }
+            return;
+        }
         
         if (hasGun == true)
             animator.SetBool("hasGun", true);

@@ -635,7 +635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5964923407743283118, guid: 94a1d06289288d34299c4d68422344bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Tutorial
+      value: Instruction Page
       objectReference: {fileID: 0}
     - target: {fileID: 5964923407743283118, guid: 94a1d06289288d34299c4d68422344bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
