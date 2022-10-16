@@ -385,6 +385,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c73852dbdee4c498181e9ef598e9e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &183104343 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3565532355660725601, guid: b9cfcf578e67cb44bbd64d59f3f5748f, type: 3}
+  m_PrefabInstance: {fileID: 443163411}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &364623700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1136,8 +1141,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrapCountText: {fileID: 443163413}
   timeText: {fileID: 443163412}
+  healthSlider: {fileID: 737778996}
+  healthBarText: {fileID: 1555977501}
   timeLimitMinutes: 1
   timeLimitSeconds: 30
+  playerObject: {fileID: 1268924461}
 --- !u!1001 &558402855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1220,6 +1228,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6538818649755501759, guid: 01b26373e8ac36e4d803e4bf54b281ae, type: 3}
   m_PrefabInstance: {fileID: 558402855}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &737778996 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3565532356358944329, guid: b9cfcf578e67cb44bbd64d59f3f5748f, type: 3}
+  m_PrefabInstance: {fileID: 443163411}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &896148167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 452028120742389228, guid: 01b26373e8ac36e4d803e4bf54b281ae, type: 3}
@@ -40539,6 +40558,9 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   animator: {fileID: 1268924463}
   hasGun: 0
+  isDead: 0
+  curHealth: 0
+  maxHealth: 100
 --- !u!50 &1268924465
 Rigidbody2D:
   serializedVersion: 4
@@ -50038,6 +50060,85 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1555977499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1555977500}
+  - component: {fileID: 1555977502}
+  - component: {fileID: 1555977501}
+  m_Layer: 5
+  m_Name: HealthValueText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1555977500
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555977499}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 183104343}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -84, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1555977501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555977499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 12
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 999
+--- !u!222 &1555977502
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555977499}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1585680712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50252,7 +50353,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: ScrapPickup
-    clip: {fileID: 8300000, guid: c6221bcc06b9530479d88450b0c45e87, type: 3}
+    clip: {fileID: 8300000, guid: 5081f6f0df627274780194bca75bd111, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerDeathWithExplosion
+    clip: {fileID: 8300000, guid: 9b500ae3924d36d41ad3844272cf9597, type: 3}
     volume: 0.5
     pitch: 1
     source: {fileID: 0}

@@ -41,9 +41,22 @@ public class Shooting : MonoBehaviour{
             Shoot();
         }
     }
-    void Shoot(){
+    void Shoot(){// shooting code, but needs some tweaking.  
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+    }
+
+
+}
+
+public class Bullet : Mono Behaviour{
+
+    public GameObject hitEffect;
+
+    void OnCollisionEnter2D(Collsion2D collision){
+        GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 5f);
+        Destroy(GameObject);
     }
 }

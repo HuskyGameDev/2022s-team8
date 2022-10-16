@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public string begin;
+    //public string scene;
 
     // Start is called before the first frame update
     void Start()
@@ -19,12 +19,15 @@ public class MainMenu : MonoBehaviour
         
     }
 
-    public void StartG() {
-        SceneManager.LoadScene(begin);
+    // To be used with the main menu buttons. Used to change what menu you are on/start the game.
+    public void buttonChangeScene(string scene) {
+        FindObjectOfType<AudioManager>().Play("MenuClick");
+        SceneManager.LoadScene(scene); // Loads the next menu or main game.
     }
 
 
     public void Quit() {
-        Application.Quit();
+        FindObjectOfType<AudioManager>().Play("MenuClick");
+        Application.Quit(); // Simply closes the running application
     }
 }
