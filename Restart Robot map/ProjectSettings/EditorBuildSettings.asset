@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: eb6d4c630efd46f48b5d7b4a40b10cbd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Instruction Page.unity
     guid: 4f71014a431d4d3419d08c9038ed51e5
+  - enabled: 1
+    path: Assets/Scenes/UpgradeMenu.unity
+    guid: 5999e771ed73aa14f9a0d87c022f669b
+  - enabled: 1
+    path: Assets/Scenes/Main Labratory.unity
+    guid: 09186c070dd1cdd41815b28fe25d7159
   m_configObjects: {}
