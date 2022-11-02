@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
 
     // To be used with the main menu buttons. Used to change what menu you are on/start the game.
     public void buttonChangeScene(string scene) {
-        FindObjectOfType<AudioManager>().Play("MenuClick");
+        FindObjectOfType<MainMenuAudio>().Play("MenuClick");
         SceneManager.LoadScene(scene); // Loads the next menu or main game.
     }
 
