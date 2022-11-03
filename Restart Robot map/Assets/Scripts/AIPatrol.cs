@@ -14,9 +14,9 @@ public class AIPatrol : MonoBehaviour
     private bool mustFlip;
 
     //REMINDER CREATE A COLLIDER FOR THE ENEMY SO THAT IT CAN DETECT WHEN RUNNING INTO WALLS
-    public RigidBody2D rb;
+    public Rigidbody2D rb;
     public Collider2D bodyCollider;
-    public Layer Tilemap_walls;
+    public LayerMask Tilemap_walls;
 
     void Start()
     {
@@ -29,14 +29,6 @@ public class AIPatrol : MonoBehaviour
         if (mustPatrol)
         {
             patrol();
-        }
-    }
-
-    private void fixedUpdate()
-    {
-        if(mustPatrol)
-        {
-            mustTurn = Physics2d.OverlapCircle(groundCheckPos.position, 0.1f, Tilemap_base);
         }
     }
     void patrol()
