@@ -1781,7 +1781,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3565532354268003413, guid: b9cfcf578e67cb44bbd64d59f3f5748f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 19.837006
+      value: 19.837036
       objectReference: {fileID: 0}
     - target: {fileID: 3565532355367567819, guid: b9cfcf578e67cb44bbd64d59f3f5748f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3078,6 +3078,53 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &688774727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 688774729}
+  - component: {fileID: 688774728}
+  m_Layer: 0
+  m_Name: SettingsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &688774728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688774727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbbbb5f26869ab459dd0c81ed8ff120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  up: {fileID: 0}
+  down: {fileID: 0}
+  left: {fileID: 0}
+  right: {fileID: 0}
+--- !u!4 &688774729
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688774727}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.98052216, y: 0.27753133, z: 288.2796}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &715897950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45003,6 +45050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9dabd5c3233fa4189cea34f34492fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 688774728}
   rb: {fileID: 1268924465}
   movement: {x: 0, y: 0}
   mousePos: {x: 0, y: 0}

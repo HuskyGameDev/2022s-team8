@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
 {
+    public SettingsManager settings;
     public Rigidbody2D rb;
     public Vector2 movement;
     public Vector2 mousePos;
@@ -46,8 +47,26 @@ public class playerMovement : MonoBehaviour
         
         if (hasGun == true)
             animator.SetBool("hasGun", true);
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        if (Input.GetKey(settings.getKey("Left")))
+        {
+            movement.x = -1;
+        }
+        else if (Input.GetKey(settings.getKey("Right")))
+        {
+            movement.x = 1;
+        }
+        else
+            movement.x = 0;
+        if (Input.GetKey(settings.getKey("Down")))
+        {
+            movement.y = -1;
+        }
+        else if (Input.GetKey(settings.getKey("Up")))
+        {
+            movement.y = 1;
+        }
+        else
+            movement.y = 0;
         if (movement.x != 0 || movement.y != 0)
             animator.SetBool("moving", true);
         else
@@ -57,6 +76,7 @@ public class playerMovement : MonoBehaviour
 
         //UPDATE HEALTH
         //DEBUG CODE
+        /**
         if(Input.GetKeyDown(KeyCode.T))
         {
             DamagePlayer(10);
@@ -85,6 +105,7 @@ public class playerMovement : MonoBehaviour
         {
             HealPlayer(100);
         }
+        */
     }
 
     void FixedUpdate()
