@@ -25,12 +25,10 @@ public class HUDManager : MonoBehaviour
 	[SerializeField]
 	private Text healthBarText = null;
 
-    //Parameter: How many minutes the player has until time runs out at level start
-    [SerializeField]
+    //How many minutes the player has until time runs out at level start
 	private int timeLimitMinutes;
 	
-    //Parameter: How many seconds the player has until time runs out at level start
-    [SerializeField]
+    //How many seconds the player has until time runs out at level start
 	private float timeLimitSeconds;
 	
 	private bool timeIsUp = false;
@@ -49,7 +47,8 @@ public class HUDManager : MonoBehaviour
 
     private void Start()
     {
-		timeLimitSeconds = timeLimitSeconds + 0.99f;
+		timeLimitSeconds = UpgradesManagerScript.Instance.getTimeLimitSeconds() + 0.99f;
+		timeLimitMinutes = UpgradesManagerScript.Instance.getTimeLimitMinutes();
 		scrapCountText.text = "0";
 		healthBarText.text = "100";
 		healthSlider.value = 1;
