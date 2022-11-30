@@ -13,6 +13,8 @@ public class UpgradesManagerScript : MonoBehaviour
     [SerializeField]
     private float startingTimeLimitSeconds;
 
+    public enum InputCommand { UpgradeTime };
+
     //THESE VARIABLES HOLD THE VALUES THAT THE PLAYER HAS UPGRADED THEM TO
     private int   timeLimitMinutes;
     private float timeLimitSeconds;
@@ -40,11 +42,7 @@ public class UpgradesManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //DEBUG CODE
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            timeLimitMinutes += 1;
-        }
+        //scrap = HUDManager.scrapCount; // Updates scrap count for upgrade use.
     }
 
     public int getTimeLimitMinutes() {
@@ -54,4 +52,16 @@ public class UpgradesManagerScript : MonoBehaviour
     public float getTimeLimitSeconds() {
         return timeLimitSeconds;
     }
+
+    public int getScrap() {
+        return HUDManager.scrapCount;
+    }
+
+    public void upgradeTime() {
+        if (HUDManager.scrapCount >= 5) {
+           timeLimitMinutes += 1; 
+           HUDManager.scrapCount = HUDManager.scrapCount - 5;
+        }
+    }
+
 }

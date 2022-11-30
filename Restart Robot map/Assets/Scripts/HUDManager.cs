@@ -32,7 +32,7 @@ public class HUDManager : MonoBehaviour
 	private float timeLimitSeconds;
 	
 	private bool timeIsUp = false;
-	private int scrapCount = 0;
+	public static int scrapCount = 0;
 	private bool playerIsDead;
 
 	private int healthSliderDestination;
@@ -49,7 +49,8 @@ public class HUDManager : MonoBehaviour
     {
 		timeLimitSeconds = UpgradesManagerScript.Instance.getTimeLimitSeconds() + 0.99f;
 		timeLimitMinutes = UpgradesManagerScript.Instance.getTimeLimitMinutes();
-		scrapCountText.text = "0";
+		//scrapCountText.text = "0";
+		scrapCountText.text = UpgradesManagerScript.Instance.getScrap().ToString();
 		healthBarText.text = "100";
 		healthSlider.value = 1;
 		healthSliderValue = 1;
