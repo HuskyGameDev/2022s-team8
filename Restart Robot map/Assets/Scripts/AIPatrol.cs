@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class AIPatrol : MonoBehaviour
 {
+    public playerMovement playermove;
     public float walkSpeed;
     // Start is called before the first frame update
     [HideInInspector]
@@ -39,6 +40,11 @@ public class AIPatrol : MonoBehaviour
             flip();
         }
         rb.velocity = new Vector2(walkSpeed * Time.fixedDeltaTime, rb.velocity.y);
+    }
+
+    void Collision(Collider other)
+    {
+        playermove?.DamagePlayer(10);
     }
 
     void flip()

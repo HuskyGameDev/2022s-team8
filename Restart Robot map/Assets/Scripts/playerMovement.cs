@@ -142,6 +142,15 @@ public class playerMovement : MonoBehaviour
         }
     }
 
+
+    void Collision(Collision other)
+    {
+        if(other.gameObject.tag == ("Bullet"))
+        {
+            DamagePlayer(5);
+        }
+    }
+
     public void HealPlayer(int amount)
     {
         curHealth += amount;
