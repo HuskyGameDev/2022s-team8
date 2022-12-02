@@ -40,6 +40,8 @@ public class playerMovement : MonoBehaviour
         if (isDead) {
 			secondsSinceDeath = secondsSinceDeath + 1*Time.deltaTime;
             if (secondsSinceDeath >= 3.0) {
+                FindObjectOfType<MainMenuAudio>().Stop("MainGameBGM");
+                FindObjectOfType<MainMenuAudio>().Play("UpgradeBGM");
                 SceneManager.LoadScene("UpgradeMenu");
             }
             return;
@@ -135,7 +137,7 @@ public class playerMovement : MonoBehaviour
         if (curHealth <= 0)
         {
             isDead = true;
-            FindObjectOfType<AudioManager>().Play("PlayerDeathWithExplosion");//PLAY DEATH SFX
+            FindObjectOfType<MainMenuAudio>().Play("PlayerDeathWithExplosion");//PLAY DEATH SFX
             animator.SetBool("isDead", true);
         }
     }

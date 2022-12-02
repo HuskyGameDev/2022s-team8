@@ -9,7 +9,7 @@ public class ScrapCollider : MonoBehaviour
        {
         if (collision.tag == "Player")
            {
-            FindObjectOfType<AudioManager>().Play("ScrapPickup");
+            FindObjectOfType<MainMenuAudio>().Play("ScrapPickup");
 			FindObjectOfType<HUDManager>().addScrap(1);
             Destroy(gameObject);
            }

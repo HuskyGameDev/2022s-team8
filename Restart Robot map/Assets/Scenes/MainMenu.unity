@@ -273,7 +273,7 @@ PrefabInstance:
     - target: {fileID: 5964923407743283118, guid: 94a1d06289288d34299c4d68422344bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 2003904012}
+      objectReference: {fileID: 0}
     - target: {fileID: 5964923407743283118, guid: 94a1d06289288d34299c4d68422344bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -592,7 +592,7 @@ PrefabInstance:
     - target: {fileID: 5964923407743283118, guid: 94a1d06289288d34299c4d68422344bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 2003904012}
+      objectReference: {fileID: 0}
     - target: {fileID: 5964923407743283118, guid: 94a1d06289288d34299c4d68422344bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -880,7 +880,7 @@ PrefabInstance:
     - target: {fileID: 5964923407743283118, guid: 94a1d06289288d34299c4d68422344bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 2003904012}
+      objectReference: {fileID: 0}
     - target: {fileID: 5964923407743283118, guid: 94a1d06289288d34299c4d68422344bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1065,9 +1065,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1149509658}
   - component: {fileID: 1149509656}
+  - component: {fileID: 1149509657}
   m_Layer: 0
-  m_Name: ButtonClickSound
-  m_TagString: Untagged
+  m_Name: AudioManager
+  m_TagString: GameSound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1087,9 +1088,54 @@ MonoBehaviour:
   sounds:
   - name: MenuClick
     clip: {fileID: 8300000, guid: e54da371fc6e46e4ca362981e52e8188, type: 3}
+    isBGM: 0
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: MainMenuBGM
+    clip: {fileID: 8300000, guid: dcfbd4ec9e29f444b83d5bc3a4dd9b3f, type: 3}
+    isBGM: 1
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: MainGameBGM
+    clip: {fileID: 8300000, guid: 1f04a59cf7a02a046a52c1145695bea9, type: 3}
+    isBGM: 1
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: UpgradeBGM
+    clip: {fileID: 8300000, guid: 4aa14f2e501438346afddc37820c6fd7, type: 3}
+    isBGM: 1
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: ScrapPickup
+    clip: {fileID: 8300000, guid: 5081f6f0df627274780194bca75bd111, type: 3}
+    isBGM: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerDeathWithExplosion
+    clip: {fileID: 8300000, guid: 9b500ae3924d36d41ad3844272cf9597, type: 3}
+    isBGM: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  sfxMixer: {fileID: -7569508478450587385, guid: 5dd13f2136fad66488cf5ab1c4e83125, type: 2}
+  bgmMixer: {fileID: -4177764203490922537, guid: 5dd13f2136fad66488cf5ab1c4e83125, type: 2}
+--- !u!114 &1149509657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149509655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a7b85d799ccaf43b360a92cf8e24ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1149509658
 Transform:
   m_ObjectHideFlags: 0
@@ -1102,7 +1148,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1440453344 stripped
 MonoBehaviour:
@@ -1357,7 +1403,7 @@ PrefabInstance:
     - target: {fileID: 5964923407743283118, guid: 94a1d06289288d34299c4d68422344bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 2003904012}
+      objectReference: {fileID: 0}
     - target: {fileID: 5964923407743283118, guid: 94a1d06289288d34299c4d68422344bf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1482,58 +1528,4 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2003904011
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2003904013}
-  - component: {fileID: 2003904012}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2003904012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003904011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb522bd4d9a83854db49442a47e00bed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: MenuClick
-    clip: {fileID: 8300000, guid: e54da371fc6e46e4ca362981e52e8188, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
-  - name: MenuHover
-    clip: {fileID: 8300000, guid: c6772b4741893cf478c8fccc8db05403, type: 3}
-    volume: 1
-    pitch: 1
-    source: {fileID: 0}
---- !u!4 &2003904013
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003904011}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

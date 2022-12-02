@@ -1857,7 +1857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3565532356069777071, guid: b9cfcf578e67cb44bbd64d59f3f5748f, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3565532356069777071, guid: b9cfcf578e67cb44bbd64d59f3f5748f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3105,10 +3105,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acbbbb5f26869ab459dd0c81ed8ff120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 0}
+  bgm: {fileID: 0}
   up: {fileID: 0}
   down: {fileID: 0}
   left: {fileID: 0}
   right: {fileID: 0}
+  sfxVolume: {fileID: 0}
+  bgmVolume: {fileID: 0}
+  sfxVolumeControl: {fileID: 0}
+  bgmVolumeControl: {fileID: 0}
 --- !u!4 &688774729
 Transform:
   m_ObjectHideFlags: 0
@@ -3121,7 +3127,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &715897950
 PrefabInstance:
@@ -45535,7 +45541,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1363935779
 PrefabInstance:
@@ -56838,60 +56844,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1896696534
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1896696536}
-  - component: {fileID: 1896696535}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1896696535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1896696534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb522bd4d9a83854db49442a47e00bed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: ScrapPickup
-    clip: {fileID: 8300000, guid: 5081f6f0df627274780194bca75bd111, type: 3}
-    volume: 0.5
-    pitch: 1
-    source: {fileID: 0}
-  - name: PlayerDeathWithExplosion
-    clip: {fileID: 8300000, guid: 9b500ae3924d36d41ad3844272cf9597, type: 3}
-    volume: 0.5
-    pitch: 1
-    source: {fileID: 0}
---- !u!4 &1896696536
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1896696534}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8518057, y: 38.515972, z: -329.02396}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1922746197
 PrefabInstance:
   m_ObjectHideFlags: 0

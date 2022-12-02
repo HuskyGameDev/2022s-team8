@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
-            s.source.volume = s.volume;
+            s.source.volume = PlayerPrefs.GetFloat("sfxVolume", 1);
             s.source.pitch = s.pitch;
         }
     }
