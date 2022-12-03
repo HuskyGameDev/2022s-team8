@@ -1122,6 +1122,36 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: EnemyDeathWithExplosion
+    clip: {fileID: 8300000, guid: 382cfbfdf9c3de94ebd592acc5343f22, type: 3}
+    isBGM: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: UpgradeNoise
+    clip: {fileID: 8300000, guid: f4954b00e1059a04eb91373431d8bf92, type: 3}
+    isBGM: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerDamage
+    clip: {fileID: 8300000, guid: cc9b11eaff154c249ba04aae3a3e8dff, type: 3}
+    isBGM: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: LaserShot
+    clip: {fileID: 8300000, guid: ecd255d7cb9b5ce4ab33e42192a3656d, type: 3}
+    isBGM: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: EnemyDamage
+    clip: {fileID: 8300000, guid: 6cc2c960319b11c48ba413191e95ccf2, type: 3}
+    isBGM: 0
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
   sfxMixer: {fileID: -7569508478450587385, guid: 5dd13f2136fad66488cf5ab1c4e83125, type: 2}
   bgmMixer: {fileID: -4177764203490922537, guid: 5dd13f2136fad66488cf5ab1c4e83125, type: 2}
 --- !u!114 &1149509657
