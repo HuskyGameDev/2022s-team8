@@ -22,4 +22,9 @@ public class UpgradeButtons : MonoBehaviour
     public void upgradeTimeButton() {
         UpgradesManagerScript.Instance.upgradeTime();
     }
+
+    public void upgradeSpeedButton() {
+        UpgradesManagerScript.Instance.upgradeSpeed();
+    }
+
 }

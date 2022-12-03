@@ -11,7 +11,7 @@ public class playerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Vector2 movement;
     public Vector2 mousePos;
-    public float moveSpeed = 5f;
+    public static float moveSpeed = 5f;
     public Camera cam;
     public Animator animator;
     public bool hasGun;

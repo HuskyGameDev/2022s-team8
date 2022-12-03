@@ -25,6 +25,9 @@ public class HUDManager : MonoBehaviour
 	[SerializeField]
 	private Text healthBarText = null;
 
+	[SerializeField]
+	private bool isUpgradeMenu = false;
+
     //How many minutes the player has until time runs out at level start
 	private int timeLimitMinutes;
 	
@@ -59,7 +62,7 @@ public class HUDManager : MonoBehaviour
 
 		//subscribe to the UpdateHealthEvent event
 		playerMovement.UpdateHealthEvent += ChangeHealth;
-
+		
 		//for running method to damage player
 		playerMovementScript = playerObject.GetComponent<playerMovement>();
 
@@ -73,22 +76,34 @@ public class HUDManager : MonoBehaviour
         AddTime();
 
 		UpdateHealthDisplay();
+
+		if (isUpgradeMenu)
+		{
+			UpdateScrapDisplay();
+		}
 		
     }
 
+	private void UpdateScrapDisplay()
+	{
+		scrapCountText.text = scrapCount.ToString();
+	}
+
 	//called by ScrapCollider.cs
-	public void addScrap(int amount) {
+	public void addScrap(int amount)
+	{
 		if (playerIsDead)
 			return;
 		
 		scrapCount = scrapCount + amount;
-		scrapCountText.text = scrapCount.ToString();
+		UpdateScrapDisplay();
+		
 	}
 
     //A method that constantly adds to the timeInLevel value as long as player is alive
     private void AddTime()
     {
-		if (playerIsDead && !timeIsUp)
+		if (playerIsDead && !timeIsUp && !isUpgradeMenu)
 			return;
 		
 		//timeText.text is the exact text string that is displayed in the timer

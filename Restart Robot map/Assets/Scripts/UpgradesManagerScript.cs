@@ -59,8 +59,20 @@ public class UpgradesManagerScript : MonoBehaviour
 
     public void upgradeTime() {
         if (HUDManager.scrapCount >= 5) {
-           timeLimitMinutes += 1; 
-           HUDManager.scrapCount = HUDManager.scrapCount - 5;
+            timeLimitSeconds += 10;
+            if (timeLimitSeconds >= 60) {
+                timeLimitSeconds -= 60;
+                timeLimitMinutes += 1;
+            } 
+            HUDManager.scrapCount -= 5;
+            FindObjectOfType<MainMenuAudio>().Play("UpgradeNoise");
+        }
+    }
+
+    public void upgradeSpeed() {
+        if (HUDManager.scrapCount >= 5 && playerMovement.moveSpeed < 10f) {
+            playerMovement.moveSpeed += 0.2f;
+            HUDManager.scrapCount -= 5;
             FindObjectOfType<MainMenuAudio>().Play("UpgradeNoise");
         }
     }
