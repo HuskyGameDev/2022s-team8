@@ -90,8 +90,13 @@ public class UpgradesManagerScript : MonoBehaviour
 
     public void upgradeHealth() {
         int cost = 20;
-        if (HUDManager.scrapCount >= cost && maxHealth < 100) {
+        int healthCap = 100;
+        if (HUDManager.scrapCount >= cost && maxHealth < healthCap) {
             maxHealth += 10;
+            if (maxHealth < healthCap)
+            {
+                maxHealth = healthCap;
+            }
             HUDManager.scrapCount -= cost;
             FindObjectOfType<MainMenuAudio>().Play("UpgradeNoise");
         }
