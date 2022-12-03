@@ -27,4 +27,8 @@ public class UpgradeButtons : MonoBehaviour
         UpgradesManagerScript.Instance.upgradeSpeed();
     }
 
+    public void upgradeHealthButton() {
+        UpgradesManagerScript.Instance.upgradeHealth();
+    }
+
 }

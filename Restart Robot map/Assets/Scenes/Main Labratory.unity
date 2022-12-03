@@ -41656,6 +41656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingTimeLimitMinutes: 0
   startingTimeLimitSeconds: 5
+  startingHealth: 10
 --- !u!4 &1361607803
 Transform:
   m_ObjectHideFlags: 0

@@ -13,11 +13,16 @@ public class UpgradesManagerScript : MonoBehaviour
     [SerializeField]
     private float startingTimeLimitSeconds;
 
+    [SerializeField]
+    private int startingHealth;
+
     public enum InputCommand { UpgradeTime };
 
     //THESE VARIABLES HOLD THE VALUES THAT THE PLAYER HAS UPGRADED THEM TO
     private int   timeLimitMinutes;
     private float timeLimitSeconds;
+
+    private int maxHealth;
 
     //Awake is called as soon as the object is created
     private void Awake()
@@ -31,6 +36,8 @@ public class UpgradesManagerScript : MonoBehaviour
 
         timeLimitMinutes = startingTimeLimitMinutes;
         timeLimitSeconds = startingTimeLimitSeconds;
+
+        maxHealth = startingHealth;
     }
 
     // Start is called before the first frame update
@@ -57,6 +64,10 @@ public class UpgradesManagerScript : MonoBehaviour
         return HUDManager.scrapCount;
     }
 
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
     public void upgradeTime() {
         if (HUDManager.scrapCount >= 5) {
             timeLimitSeconds += 10;
@@ -73,6 +84,15 @@ public class UpgradesManagerScript : MonoBehaviour
         if (HUDManager.scrapCount >= 5 && playerMovement.moveSpeed < 10f) {
             playerMovement.moveSpeed += 0.2f;
             HUDManager.scrapCount -= 5;
+            FindObjectOfType<MainMenuAudio>().Play("UpgradeNoise");
+        }
+    }
+
+    public void upgradeHealth() {
+        int cost = 20;
+        if (HUDManager.scrapCount >= cost && maxHealth < 100) {
+            maxHealth += 10;
+            HUDManager.scrapCount -= cost;
             FindObjectOfType<MainMenuAudio>().Play("UpgradeNoise");
         }
     }

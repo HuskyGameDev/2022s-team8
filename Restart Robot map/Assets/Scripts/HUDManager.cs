@@ -54,10 +54,10 @@ public class HUDManager : MonoBehaviour
 		timeLimitMinutes = UpgradesManagerScript.Instance.getTimeLimitMinutes();
 		//scrapCountText.text = "0";
 		scrapCountText.text = UpgradesManagerScript.Instance.getScrap().ToString();
-		healthBarText.text = "100";
+		healthBarText.text = "1";
 		healthSlider.value = 1;
 		healthSliderValue = 1;
-		healthSliderDestination = 100;
+		healthSliderDestination = UpgradesManagerScript.Instance.getMaxHealth();
 
 
 		//subscribe to the UpdateHealthEvent event

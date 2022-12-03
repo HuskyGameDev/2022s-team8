@@ -20,8 +20,7 @@ public class playerMovement : MonoBehaviour
     public bool isDead;
     private float secondsSinceDeath;
     public int curHealth;
-    [SerializeField]
-    public int maxHealth = 100;
+    public int maxHealth;
 
     public delegate void SetHealth(int amount);
     public static event SetHealth UpdateHealthEvent;
@@ -29,6 +28,7 @@ public class playerMovement : MonoBehaviour
     //Called on startup
     private void Start()
     {
+        maxHealth = UpgradesManagerScript.Instance.getMaxHealth();
         curHealth = maxHealth;
         secondsSinceDeath = 0;
         UpdateHealthEvent(curHealth);
@@ -75,39 +75,6 @@ public class playerMovement : MonoBehaviour
             animator.SetBool("moving", false);
 
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-
-        //UPDATE HEALTH
-        //DEBUG CODE
-        /**
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            DamagePlayer(10);
-        }
-        if(Input.GetKeyDown(KeyCode.Y))
-        {
-            DamagePlayer(1);
-        }
-        if(Input.GetKeyDown(KeyCode.U))
-        {
-            DamagePlayer(99);
-        }
-        if(Input.GetKeyDown(KeyCode.I))
-        {
-            DamagePlayer((int)Random.Range(1,10));
-        }
-        if(Input.GetKeyDown(KeyCode.H) && curHealth != maxHealth)
-        {
-            HealPlayer(10);
-        }
-        if(Input.GetKeyDown(KeyCode.J) && curHealth != maxHealth)
-        {
-            HealPlayer(1);
-        }
-        if(Input.GetKeyDown(KeyCode.K) && curHealth != maxHealth)
-        {
-            HealPlayer(100);
-        }
-        */
     }
 
     void FixedUpdate()
