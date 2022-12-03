@@ -140,6 +140,7 @@ public class playerMovement : MonoBehaviour
             FindObjectOfType<MainMenuAudio>().Play("PlayerDeathWithExplosion");//PLAY DEATH SFX
             animator.SetBool("isDead", true);
         }
+        FindObjectOfType<MainMenuAudio>().Play("PlayerDamage");
     }
 
 

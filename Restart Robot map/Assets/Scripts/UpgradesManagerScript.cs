@@ -61,6 +61,7 @@ public class UpgradesManagerScript : MonoBehaviour
         if (HUDManager.scrapCount >= 5) {
            timeLimitMinutes += 1; 
            HUDManager.scrapCount = HUDManager.scrapCount - 5;
+            FindObjectOfType<MainMenuAudio>().Play("UpgradeNoise");
         }
     }
 
