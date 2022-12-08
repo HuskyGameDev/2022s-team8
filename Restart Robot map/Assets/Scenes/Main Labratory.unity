@@ -1860,8 +1860,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6538818649755501759, guid: 01b26373e8ac36e4d803e4bf54b281ae, type: 3}
   m_PrefabInstance: {fileID: 946813356}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &946813358 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 452028120742389228, guid: 01b26373e8ac36e4d803e4bf54b281ae, type: 3}
@@ -2045,7 +2043,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
->>>>>>> Stashed changes
 --- !u!1001 &997319932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2356,8 +2353,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6538818649755501759, guid: 01b26373e8ac36e4d803e4bf54b281ae, type: 3}
   m_PrefabInstance: {fileID: 1152847935}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1152847937 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 452028120742389228, guid: 01b26373e8ac36e4d803e4bf54b281ae, type: 3}
@@ -2489,7 +2484,6 @@ Transform:
   m_Father: {fileID: 1268924467}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
 --- !u!1001 &1191876358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52089,8 +52083,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6538818649755501759, guid: 01b26373e8ac36e4d803e4bf54b281ae, type: 3}
   m_PrefabInstance: {fileID: 2059220655}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &2059220657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 452028120742389228, guid: 01b26373e8ac36e4d803e4bf54b281ae, type: 3}
@@ -52274,7 +52266,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
->>>>>>> Stashed changes
 --- !u!1 &2099799546
 GameObject:
   m_ObjectHideFlags: 0
