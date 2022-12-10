@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Scrap
   - GameSound
+  - Wall
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - background
   - Water
   - UI
-  - 
+  - projectile
   - 
   - 
   - 
@@ -51,4 +53,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 3684737981
+    locked: 0
+  - name: Projectile
+    uniqueID: 3716518257
     locked: 0
